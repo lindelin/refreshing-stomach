@@ -7,5 +7,7 @@ target 'refreshing-stomach' do
 
   # Pods for refreshing-stomach
   pod 'Firebase/Auth'
+  pod 'BulletinBoard'
+  pod 'Firebase/Analytics'
 
 end

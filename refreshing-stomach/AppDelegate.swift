@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Use Firebase library to configure APIs
+        FirebaseApp.configure()
+        
+        if let user = Auth.auth().currentUser {
+            guard user.isEmailVerified else {
+                let storyboard = UIStoryboard(name:"Auth", bundle: nil)
+                let emailVerificationController = storyboard.instantiateViewController(withIdentifier: "EmailVerificationView") as! EmailVerificationController
+                window?.rootViewController = emailVerificationController
+                return true
+            }
+            
+            
+        }
+        
         return true
     }
 
