@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0889AECEAA58382730D032D4 /* Pods_refreshing_stomach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F949DA560B676895ED1B813 /* Pods_refreshing_stomach.framework */; };
 		F2C101622302578E000822E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C101612302578E000822E0 /* AppDelegate.swift */; };
 		F2C101642302578E000822E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C101632302578E000822E0 /* ViewController.swift */; };
 		F2C101672302578E000822E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2C101652302578E000822E0 /* Main.storyboard */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F949DA560B676895ED1B813 /* Pods_refreshing_stomach.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_refreshing_stomach.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5C988BEC12EA7ADAA721C8C /* Pods-refreshing-stomach.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-refreshing-stomach.release.xcconfig"; path = "Target Support Files/Pods-refreshing-stomach/Pods-refreshing-stomach.release.xcconfig"; sourceTree = "<group>"; };
+		EE72309FB71DBF9EAC4953B3 /* Pods-refreshing-stomach.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-refreshing-stomach.debug.xcconfig"; path = "Target Support Files/Pods-refreshing-stomach/Pods-refreshing-stomach.debug.xcconfig"; sourceTree = "<group>"; };
 		F2C1015E2302578E000822E0 /* refreshing-stomach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "refreshing-stomach.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2C101612302578E000822E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2C101632302578E000822E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +28,8 @@
 		F2C1016B23025791000822E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2C1016E23025791000822E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2C1017023025791000822E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2C10176230257E6000822E0 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		F2C10177230257E6000822E0 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0889AECEAA58382730D032D4 /* Pods_refreshing_stomach.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B49C474F08B28EB7CC480E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EE72309FB71DBF9EAC4953B3 /* Pods-refreshing-stomach.debug.xcconfig */,
+				D5C988BEC12EA7ADAA721C8C /* Pods-refreshing-stomach.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AAF74510F9F7B179E0DB3D76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F949DA560B676895ED1B813 /* Pods_refreshing_stomach.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F2C101552302578E000822E0 = {
 			isa = PBXGroup;
 			children = (
 				F2C101602302578E000822E0 /* refreshing-stomach */,
 				F2C1015F2302578E000822E0 /* Products */,
+				9B49C474F08B28EB7CC480E1 /* Pods */,
+				AAF74510F9F7B179E0DB3D76 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2C1017323025791000822E0 /* Build configuration list for PBXNativeTarget "refreshing-stomach" */;
 			buildPhases = (
+				6CD46B00E7D5D83BB0F47A12 /* [CP] Check Pods Manifest.lock */,
 				F2C1015A2302578E000822E0 /* Sources */,
 				F2C1015B2302578E000822E0 /* Frameworks */,
 				F2C1015C2302578E000822E0 /* Resources */,
+				097A9B383F09F9C38A4741E5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -109,6 +138,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = F2C101552302578E000822E0;
 			productRefGroup = F2C1015F2302578E000822E0 /* Products */;
@@ -133,6 +163,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		097A9B383F09F9C38A4741E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-refreshing-stomach/Pods-refreshing-stomach-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-refreshing-stomach/Pods-refreshing-stomach-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6CD46B00E7D5D83BB0F47A12 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-refreshing-stomach-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F2C1015A2302578E000822E0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -151,6 +232,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F2C101662302578E000822E0 /* Base */,
+				F2C10176230257E6000822E0 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -159,6 +241,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F2C1016E23025791000822E0 /* Base */,
+				F2C10177230257E6000822E0 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -170,6 +253,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -231,6 +315,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -284,6 +369,7 @@
 		};
 		F2C1017423025791000822E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE72309FB71DBF9EAC4953B3 /* Pods-refreshing-stomach.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,12 +382,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.lindelin.refreshing-stomach";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		F2C1017523025791000822E0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5C988BEC12EA7ADAA721C8C /* Pods-refreshing-stomach.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -314,7 +401,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.lindelin.refreshing-stomach";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
