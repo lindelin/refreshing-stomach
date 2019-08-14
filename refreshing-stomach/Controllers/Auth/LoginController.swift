@@ -41,14 +41,27 @@ class LoginController: UIViewController {
             guard authResult.user.isEmailVerified else {
                 let storyboard = UIStoryboard(name: "Auth", bundle: nil)
                 let emailVerificationController = storyboard.instantiateViewController(withIdentifier: "EmailVerificationView") as! EmailVerificationController
-                UIView.transition(from: self.view, to: emailVerificationController.view, duration: 0.6, options: [.transitionCrossDissolve], completion: {
-                    _ in
+                UIView.transition(from: self.view, to: emailVerificationController.view, duration: 0.6, options: [.transitionCrossDissolve], completion: { _ in
                     UIApplication.shared.keyWindow?.rootViewController = emailVerificationController
                 })
                 return
             }
             
-            print("ログインした！")
+            guard let name = authResult.user.displayName, name.count > 0 else {
+                let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+                let registUserInfoController = storyboard.instantiateViewController(withIdentifier: "RegistUserInfoView") as! RegistUserInfoController
+                UIView.transition(from: self.view, to: registUserInfoController.view, duration: 0.6, options: [.transitionCrossDissolve], completion: { _ in
+                    UIApplication.shared.keyWindow?.rootViewController = registUserInfoController
+                })
+                return
+            }
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainController = storyboard.instantiateViewController(withIdentifier: "MainView")
+            UIView.transition(from: self.view, to: mainController.view, duration: 0.6, options: [.transitionCrossDissolve], completion: {
+                _ in
+                UIApplication.shared.keyWindow?.rootViewController = mainController
+            })
         }
     }
     

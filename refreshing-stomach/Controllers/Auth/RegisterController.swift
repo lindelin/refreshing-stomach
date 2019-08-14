@@ -30,12 +30,12 @@ class RegisterController: UIViewController {
     }
     
     @IBAction func nextButtonHasTapped(_ sender: Any) {
-        guard let email = emailField.text else {
+        guard let email = emailField.text, email.count > 0 else {
             self.showErrorMessage(message: "メールアドレスは必ず入力してください。")
             return
         }
         
-        guard let password = passwordField.text, let passwordConfirmation = passwordConfirmationField.text else {
+        guard let password = passwordField.text, let passwordConfirmation = passwordConfirmationField.text, password.count > 0 else {
             self.showErrorMessage(message: "パスワードは必ず入力してください。")
             return
         }

@@ -29,8 +29,7 @@ extension UIViewController {
                 try firebaseAuth.signOut()
                 let storyboard = UIStoryboard(name: "Auth", bundle: nil)
                 let welcomeController = storyboard.instantiateViewController(withIdentifier: "WelcomeView") as! WelcomeController
-                UIView.transition(from: self.view, to: welcomeController.view, duration: 0.6, options: [.transitionCrossDissolve], completion: {
-                    _ in
+                UIView.transition(from: self.tabBarController?.view ?? self.view, to: welcomeController.view, duration: 0.6, options: [.transitionCrossDissolve], completion: { _ in
                     UIApplication.shared.keyWindow?.rootViewController = welcomeController
                 })
             } catch let signOutError as NSError {

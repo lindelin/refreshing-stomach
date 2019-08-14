@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0889AECEAA58382730D032D4 /* Pods_refreshing_stomach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F949DA560B676895ED1B813 /* Pods_refreshing_stomach.framework */; };
+		F26D800023039E28009F4FC9 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F26D7FFF23039E28009F4FC9 /* Profile.storyboard */; };
+		F26D800223039E45009F4FC9 /* Logs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F26D800123039E45009F4FC9 /* Logs.storyboard */; };
+		F26D800423039E63009F4FC9 /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F26D800323039E63009F4FC9 /* Report.storyboard */; };
+		F26D800623039EEC009F4FC9 /* Action.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F26D800523039EEC009F4FC9 /* Action.storyboard */; };
+		F26D80092303E9E5009F4FC9 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26D80082303E9E5009F4FC9 /* ProfileController.swift */; };
+		F26D800B2303F3FC009F4FC9 /* RegistUserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26D800A2303F3FC009F4FC9 /* RegistUserInfoController.swift */; };
 		F2C101622302578E000822E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C101612302578E000822E0 /* AppDelegate.swift */; };
 		F2C101642302578E000822E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C101632302578E000822E0 /* ViewController.swift */; };
 		F2C101672302578E000822E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2C101652302578E000822E0 /* Main.storyboard */; };
@@ -28,6 +34,12 @@
 		8F949DA560B676895ED1B813 /* Pods_refreshing_stomach.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_refreshing_stomach.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5C988BEC12EA7ADAA721C8C /* Pods-refreshing-stomach.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-refreshing-stomach.release.xcconfig"; path = "Target Support Files/Pods-refreshing-stomach/Pods-refreshing-stomach.release.xcconfig"; sourceTree = "<group>"; };
 		EE72309FB71DBF9EAC4953B3 /* Pods-refreshing-stomach.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-refreshing-stomach.debug.xcconfig"; path = "Target Support Files/Pods-refreshing-stomach/Pods-refreshing-stomach.debug.xcconfig"; sourceTree = "<group>"; };
+		F26D7FFF23039E28009F4FC9 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		F26D800123039E45009F4FC9 /* Logs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Logs.storyboard; sourceTree = "<group>"; };
+		F26D800323039E63009F4FC9 /* Report.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Report.storyboard; sourceTree = "<group>"; };
+		F26D800523039EEC009F4FC9 /* Action.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Action.storyboard; sourceTree = "<group>"; };
+		F26D80082303E9E5009F4FC9 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		F26D800A2303F3FC009F4FC9 /* RegistUserInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistUserInfoController.swift; sourceTree = "<group>"; };
 		F2C1015E2302578E000822E0 /* refreshing-stomach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "refreshing-stomach.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2C101612302578E000822E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2C101632302578E000822E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +89,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F26D80072303E98D009F4FC9 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F26D80082303E9E5009F4FC9 /* ProfileController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		F2C101552302578E000822E0 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +137,10 @@
 			children = (
 				F2C101652302578E000822E0 /* Main.storyboard */,
 				F2C1017923025FF0000822E0 /* Auth.storyboard */,
+				F26D7FFF23039E28009F4FC9 /* Profile.storyboard */,
+				F26D800123039E45009F4FC9 /* Logs.storyboard */,
+				F26D800323039E63009F4FC9 /* Report.storyboard */,
+				F26D800523039EEC009F4FC9 /* Action.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -124,6 +148,7 @@
 		F2C1017B23026D5C000822E0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F26D80072303E98D009F4FC9 /* Profile */,
 				F2C1017C23026D6A000822E0 /* Auth */,
 			);
 			path = Controllers;
@@ -137,6 +162,7 @@
 				F2C1018423029B4E000822E0 /* EmailVerificationController.swift */,
 				F2C101882302AF55000822E0 /* LoginController.swift */,
 				F2C1018A2302B73B000822E0 /* SendPasswordResetMailController.swift */,
+				F26D800A2303F3FC009F4FC9 /* RegistUserInfoController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -210,10 +236,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F26D800023039E28009F4FC9 /* Profile.storyboard in Resources */,
+				F26D800423039E63009F4FC9 /* Report.storyboard in Resources */,
 				F2C1017A23025FF0000822E0 /* Auth.storyboard in Resources */,
 				F2C1016F23025791000822E0 /* LaunchScreen.storyboard in Resources */,
+				F26D800623039EEC009F4FC9 /* Action.storyboard in Resources */,
 				F2C101872302A0CE000822E0 /* GoogleService-Info.plist in Resources */,
 				F2C1016C23025791000822E0 /* Assets.xcassets in Resources */,
+				F26D800223039E45009F4FC9 /* Logs.storyboard in Resources */,
 				F2C101672302578E000822E0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,9 +310,11 @@
 			files = (
 				F2C1018323029112000822E0 /* UIViewControllerSupport.swift in Sources */,
 				F2C1018023028422000822E0 /* RegisterController.swift in Sources */,
+				F26D800B2303F3FC009F4FC9 /* RegistUserInfoController.swift in Sources */,
 				F2C1016A2302578F000822E0 /* refreshing_stomach.xcdatamodeld in Sources */,
 				F2C1018523029B4E000822E0 /* EmailVerificationController.swift in Sources */,
 				F2C101642302578E000822E0 /* ViewController.swift in Sources */,
+				F26D80092303E9E5009F4FC9 /* ProfileController.swift in Sources */,
 				F2C101892302AF55000822E0 /* LoginController.swift in Sources */,
 				F2C1017E23026D9C000822E0 /* WelcomeController.swift in Sources */,
 				F2C101622302578E000822E0 /* AppDelegate.swift in Sources */,

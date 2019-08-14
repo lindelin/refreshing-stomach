@@ -30,7 +30,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return true
             }
             
+            guard let name = user.displayName, name.count > 0 else {
+                let storyboard = UIStoryboard(name:"Auth", bundle: nil)
+                let registUserInfoController = storyboard.instantiateViewController(withIdentifier: "RegistUserInfoView") as! RegistUserInfoController
+                window?.rootViewController = registUserInfoController
+                return true
+            }
             
+            let storyboard = UIStoryboard(name:"Main", bundle: nil)
+            let mainViewController = storyboard.instantiateViewController(withIdentifier: "MainView")
+            window?.rootViewController = mainViewController
         }
         
         return true
