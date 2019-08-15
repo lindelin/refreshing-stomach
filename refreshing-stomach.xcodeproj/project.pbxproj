@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0889AECEAA58382730D032D4 /* Pods_refreshing_stomach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F949DA560B676895ED1B813 /* Pods_refreshing_stomach.framework */; };
 		F266A1E42304E24600203C7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F266A1E32304E24600203C7F /* GoogleService-Info.plist */; };
+		F266A1E623054A0400203C7F /* UserDefaultsSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F266A1E523054A0400203C7F /* UserDefaultsSupport.swift */; };
+		F266A1E823054D8300203C7F /* SystemSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F266A1E723054D8300203C7F /* SystemSupport.swift */; };
 		F26D800023039E28009F4FC9 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F26D7FFF23039E28009F4FC9 /* Profile.storyboard */; };
 		F26D800223039E45009F4FC9 /* Logs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F26D800123039E45009F4FC9 /* Logs.storyboard */; };
 		F26D800423039E63009F4FC9 /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F26D800323039E63009F4FC9 /* Report.storyboard */; };
@@ -35,6 +37,8 @@
 		D5C988BEC12EA7ADAA721C8C /* Pods-refreshing-stomach.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-refreshing-stomach.release.xcconfig"; path = "Target Support Files/Pods-refreshing-stomach/Pods-refreshing-stomach.release.xcconfig"; sourceTree = "<group>"; };
 		EE72309FB71DBF9EAC4953B3 /* Pods-refreshing-stomach.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-refreshing-stomach.debug.xcconfig"; path = "Target Support Files/Pods-refreshing-stomach/Pods-refreshing-stomach.debug.xcconfig"; sourceTree = "<group>"; };
 		F266A1E32304E24600203C7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F266A1E523054A0400203C7F /* UserDefaultsSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsSupport.swift; sourceTree = "<group>"; };
+		F266A1E723054D8300203C7F /* SystemSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSupport.swift; sourceTree = "<group>"; };
 		F26D7FFF23039E28009F4FC9 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		F26D800123039E45009F4FC9 /* Logs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Logs.storyboard; sourceTree = "<group>"; };
 		F26D800323039E63009F4FC9 /* Report.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Report.storyboard; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				F2C1018223029112000822E0 /* UIViewControllerSupport.swift */,
+				F266A1E523054A0400203C7F /* UserDefaultsSupport.swift */,
+				F266A1E723054D8300203C7F /* SystemSupport.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -260,18 +266,28 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-refreshing-stomach/Pods-refreshing-stomach-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BLTNBoard.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BLTNBoard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,9 +324,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F266A1E623054A0400203C7F /* UserDefaultsSupport.swift in Sources */,
 				F2C1018323029112000822E0 /* UIViewControllerSupport.swift in Sources */,
 				F2C1018023028422000822E0 /* RegisterController.swift in Sources */,
 				F26D800B2303F3FC009F4FC9 /* RegistUserInfoController.swift in Sources */,
+				F266A1E823054D8300203C7F /* SystemSupport.swift in Sources */,
 				F2C1016A2302578F000822E0 /* refreshing_stomach.xcdatamodeld in Sources */,
 				F2C1018523029B4E000822E0 /* EmailVerificationController.swift in Sources */,
 				F2C101642302578E000822E0 /* ViewController.swift in Sources */,

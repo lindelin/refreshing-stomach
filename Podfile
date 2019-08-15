@@ -6,8 +6,11 @@ target 'refreshing-stomach' do
   use_frameworks!
 
   # Pods for refreshing-stomach
-  pod 'Firebase/Auth'
-  pod 'BulletinBoard'
+  pod 'Firebase/Core'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
+  pod 'BulletinBoard'
 
 end
