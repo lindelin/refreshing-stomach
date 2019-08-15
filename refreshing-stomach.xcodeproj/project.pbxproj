@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0889AECEAA58382730D032D4 /* Pods_refreshing_stomach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F949DA560B676895ED1B813 /* Pods_refreshing_stomach.framework */; };
+		F266A1E42304E24600203C7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F266A1E32304E24600203C7F /* GoogleService-Info.plist */; };
 		F26D800023039E28009F4FC9 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F26D7FFF23039E28009F4FC9 /* Profile.storyboard */; };
 		F26D800223039E45009F4FC9 /* Logs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F26D800123039E45009F4FC9 /* Logs.storyboard */; };
 		F26D800423039E63009F4FC9 /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F26D800323039E63009F4FC9 /* Report.storyboard */; };
@@ -25,7 +26,6 @@
 		F2C1018023028422000822E0 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1017F23028422000822E0 /* RegisterController.swift */; };
 		F2C1018323029112000822E0 /* UIViewControllerSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1018223029112000822E0 /* UIViewControllerSupport.swift */; };
 		F2C1018523029B4E000822E0 /* EmailVerificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1018423029B4E000822E0 /* EmailVerificationController.swift */; };
-		F2C101872302A0CE000822E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2C101862302A0CE000822E0 /* GoogleService-Info.plist */; };
 		F2C101892302AF55000822E0 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C101882302AF55000822E0 /* LoginController.swift */; };
 		F2C1018B2302B73B000822E0 /* SendPasswordResetMailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1018A2302B73B000822E0 /* SendPasswordResetMailController.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +34,7 @@
 		8F949DA560B676895ED1B813 /* Pods_refreshing_stomach.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_refreshing_stomach.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5C988BEC12EA7ADAA721C8C /* Pods-refreshing-stomach.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-refreshing-stomach.release.xcconfig"; path = "Target Support Files/Pods-refreshing-stomach/Pods-refreshing-stomach.release.xcconfig"; sourceTree = "<group>"; };
 		EE72309FB71DBF9EAC4953B3 /* Pods-refreshing-stomach.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-refreshing-stomach.debug.xcconfig"; path = "Target Support Files/Pods-refreshing-stomach/Pods-refreshing-stomach.debug.xcconfig"; sourceTree = "<group>"; };
+		F266A1E32304E24600203C7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F26D7FFF23039E28009F4FC9 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		F26D800123039E45009F4FC9 /* Logs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Logs.storyboard; sourceTree = "<group>"; };
 		F26D800323039E63009F4FC9 /* Report.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Report.storyboard; sourceTree = "<group>"; };
@@ -55,7 +56,6 @@
 		F2C1017F23028422000822E0 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		F2C1018223029112000822E0 /* UIViewControllerSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerSupport.swift; sourceTree = "<group>"; };
 		F2C1018423029B4E000822E0 /* EmailVerificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationController.swift; sourceTree = "<group>"; };
-		F2C101862302A0CE000822E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2C101882302AF55000822E0 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		F2C1018A2302B73B000822E0 /* SendPasswordResetMailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPasswordResetMailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,7 +126,7 @@
 				F2C1016B23025791000822E0 /* Assets.xcassets */,
 				F2C1016D23025791000822E0 /* LaunchScreen.storyboard */,
 				F2C1017023025791000822E0 /* Info.plist */,
-				F2C101862302A0CE000822E0 /* GoogleService-Info.plist */,
+				F266A1E32304E24600203C7F /* GoogleService-Info.plist */,
 				F2C101682302578F000822E0 /* refreshing_stomach.xcdatamodeld */,
 			);
 			path = "refreshing-stomach";
@@ -238,10 +238,10 @@
 			files = (
 				F26D800023039E28009F4FC9 /* Profile.storyboard in Resources */,
 				F26D800423039E63009F4FC9 /* Report.storyboard in Resources */,
+				F266A1E42304E24600203C7F /* GoogleService-Info.plist in Resources */,
 				F2C1017A23025FF0000822E0 /* Auth.storyboard in Resources */,
 				F2C1016F23025791000822E0 /* LaunchScreen.storyboard in Resources */,
 				F26D800623039EEC009F4FC9 /* Action.storyboard in Resources */,
-				F2C101872302A0CE000822E0 /* GoogleService-Info.plist in Resources */,
 				F2C1016C23025791000822E0 /* Assets.xcassets in Resources */,
 				F26D800223039E45009F4FC9 /* Logs.storyboard in Resources */,
 				F2C101672302578E000822E0 /* Main.storyboard in Resources */,
