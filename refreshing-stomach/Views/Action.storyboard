@@ -17,7 +17,22 @@
                     <view key="view" contentMode="scaleToFill" id="a4h-P9-oRg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ah4-G9-CmG">
+                                <rect key="frame" x="82" y="323" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="HGM-Zb-9Se"/>
+                                    <constraint firstAttribute="height" constant="250" id="nSD-6V-lHA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="160"/>
+                                <state key="normal" title="💩"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ah4-G9-CmG" firstAttribute="centerY" secondItem="a4h-P9-oRg" secondAttribute="centerY" id="7gv-nk-A4a"/>
+                            <constraint firstItem="ah4-G9-CmG" firstAttribute="centerX" secondItem="a4h-P9-oRg" secondAttribute="centerX" id="O3e-4Y-aHb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xCX-Cz-Gu8"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="きろく" image="poo-64-o" selectedImage="poo-64-o" springLoaded="YES" id="aeg-aY-ys4">
@@ -27,7 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GrP-y6-QXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="283" y="216"/>
+            <point key="canvasLocation" x="282.60869565217394" y="215.625"/>
         </scene>
     </scenes>
     <resources>
