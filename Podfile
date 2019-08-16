@@ -12,5 +12,6 @@ target 'refreshing-stomach' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'BulletinBoard'
+  pod "KRProgressHUD"
 
 end

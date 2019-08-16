@@ -13,6 +13,7 @@ extension UserDefaults {
     enum UserInfo: String {
         case name = "userName"
         case birthday = "userBirthday"
+        case sex = "userSex"
     }
     
     static func setUser(_ value: Any?, forKey userInfoKey: UserInfo) {

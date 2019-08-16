@@ -9,16 +9,19 @@
 import UIKit
 import Firebase
 import MobileCoreServices
+import KRProgressHUD
 
 class RegistUserInfoController: UIViewController {
     
     let db = Firestore.firestore()
     let storage = Storage.storage()
+    var photoPath: String?
+    var sexCode: String?
 
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var birthdayField: UITextField!
-    
+    @IBOutlet weak var sexField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +35,15 @@ class RegistUserInfoController: UIViewController {
         birthdayField.delegate = self
         
         self.birthdayField.addTarget(self, action: #selector(self.birthdayEditing), for: .editingDidBegin)
+        self.sexField.addTarget(self, action: #selector(self.sexEditing), for: .editingDidBegin)
+    }
+    
+    @objc func sexEditing(sender: UITextField) {
+        let pickerView = UIPickerView()
+        pickerView.tag = 0
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        sender.inputView = pickerView
     }
     
     @objc func birthdayEditing(sender: UITextField) {
@@ -97,6 +109,11 @@ class RegistUserInfoController: UIViewController {
             return
         }
         
+        guard let sexCode = sexCode, sexCode.count > 0 else {
+            self.showErrorMessage(message: "性別は必須です。")
+            return
+        }
+        
         guard let user = Auth.auth().currentUser else {
             return
         }
@@ -105,6 +122,8 @@ class RegistUserInfoController: UIViewController {
         ref.setData([
             "id": user.uid,
             "name": name,
+            "sex": sexCode,
+            "photoPath": photoPath as Any,
             "email": user.email!,
             "birthday": birthday
         ]) { err in
@@ -115,25 +134,51 @@ class RegistUserInfoController: UIViewController {
             }
         }
         
-//        let request = user.createProfileChangeRequest()
-//        request.displayName = name
-//        request.commitChanges { (error) in
-//            if let error = error {
-//                self.showErrorMessage(message: error.localizedDescription)
-//                return
-//            }
-//
-//            UserDefaults.setUser(name, forKey: .name)
-//            UserDefaults.setUser(birthday, forKey: .birthday)
-//            UserDefaults.standard.synchronize()
-//
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let mainController = storyboard.instantiateViewController(withIdentifier: "MainView")
-//            UIView.transition(from: self.view, to: mainController.view, duration: 0.6, options: [.transitionCrossDissolve], completion: {
-//                _ in
-//                UIApplication.shared.keyWindow?.rootViewController = mainController
-//            })
-//        }
+        if let photoPath = self.photoPath {
+            DispatchQueue.main.async {
+                let photoRef = self.storage.reference(withPath: photoPath)
+                photoRef.downloadURL(completion: { (url, error) in
+                    if let error = error {
+                        print(error)
+                        return
+                    }
+                    
+                    let request = user.createProfileChangeRequest()
+                    request.photoURL = url
+                    request.commitChanges { (error) in
+                        if let error = error {
+                            print(error)
+                            return
+                        }
+                    }
+                })
+            }
+        }
+        
+        if let photo = self.photoView.image {
+            photo.saveAsUserPhoto()
+        }
+        
+        let request = user.createProfileChangeRequest()
+        request.displayName = name
+        request.commitChanges { (error) in
+            if let error = error {
+                self.showErrorMessage(message: error.localizedDescription)
+                return
+            }
+
+            UserDefaults.setUser(name, forKey: .name)
+            UserDefaults.setUser(birthday, forKey: .birthday)
+            UserDefaults.setUser(self.sexField.text!, forKey: .sex)
+            UserDefaults.standard.synchronize()
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainController = storyboard.instantiateViewController(withIdentifier: "MainView")
+            UIView.transition(from: self.view, to: mainController.view, duration: 0.6, options: [.transitionCrossDissolve], completion: {
+                _ in
+                UIApplication.shared.keyWindow?.rootViewController = mainController
+            })
+        }
     }
     
     // キーボードをしまう
@@ -162,6 +207,9 @@ extension RegistUserInfoController: UITextFieldDelegate {
             birthdayField.becomeFirstResponder()
             break
         case 1:
+            sexField.becomeFirstResponder()
+            break
+        case 2:
             textField.resignFirstResponder()
             break
         default:
@@ -173,6 +221,19 @@ extension RegistUserInfoController: UITextFieldDelegate {
 
 extension RegistUserInfoController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        KRProgressHUD.show(withMessage: "アップロード中です...0%", completion: nil)
+        
+        DispatchQueue.main.async {
+            if let photoPath = self.photoPath {
+                let deleteRef = self.storage.reference(withPath: photoPath)
+                deleteRef.delete(completion: { (error) in
+                    if let error = error {
+                        print(error)
+                    }
+                })
+            }
+        }
+        
         let mediaType = info[.mediaType] as! String
         
         guard mediaType == (kUTTypeImage as String) else {
@@ -188,15 +249,60 @@ extension RegistUserInfoController: UIImagePickerControllerDelegate, UINavigatio
         }
         
         let imageId = UUID().uuidString
-        let uploadRef = storage.reference(withPath: "public/\(imageId).jpg")
+        let path = "public/\(imageId).jpg"
+        let uploadRef = storage.reference(withPath: path)
         let uploadMetaData = StorageMetadata()
         uploadMetaData.contentType = "image/jpeg"
-        uploadRef.putData(imageData, metadata: uploadMetaData) { (downloadMetaData, error) in
+        
+        let task = uploadRef.putData(imageData, metadata: uploadMetaData) { (downloadMetaData, error) in
             if let error = error {
                 self.showErrorMessage(message: error.localizedDescription)
                 return
             }
+            self.photoPath = path
+            self.photoView.image = image
+            KRProgressHUD.dismiss()
             picker.dismiss(animated: true)
+        }
+        
+        task.observe(.progress) { (snapshot) in
+            guard let pct = snapshot.progress?.fractionCompleted else { return }
+            KRProgressHUD.update(message: "アップロード中です...\(round(pct * 100))%")
+        }
+    }
+}
+
+extension RegistUserInfoController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch pickerView.tag {
+        case 0:
+            return 2
+        default:
+            return 0
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch pickerView.tag {
+        case 0:
+            return row == 0 ? "男性" : "女性"
+        default:
+            return nil
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch pickerView.tag {
+        case 0:
+            self.sexField.text = row == 0 ? "男性" : "女性"
+            self.sexCode = row == 0 ? User.Sex.man.rawValue : User.Sex.woman.rawValue
+            break
+        default:
+            break
         }
     }
 }

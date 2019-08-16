@@ -10,8 +10,20 @@ import UIKit
 
 class ProfileController: UITableViewController {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var photoView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
+    }
+    
+    func updateUI() {
+        photoView.image = UIImage.getUserPhoto()
+        nameLabel.text = UserDefaults.getUser(forKey: .name)
+        let age = Date.createFormFormat(string: UserDefaults.getUser(forKey: .birthday)!)?.age()
+        infoLabel.text = "\(UserDefaults.getUser(forKey: .sex)!) / \(age!)歳"
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
