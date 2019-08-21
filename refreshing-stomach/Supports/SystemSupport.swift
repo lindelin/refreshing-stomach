@@ -56,3 +56,17 @@ extension UIImage {
         }
     }
 }
+
+extension Log: Encodable {
+    private enum CodingKeys: String, CodingKey {
+        case id, type
+        case createdAt = "created_at"
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id?.uuidString, forKey: .id)
+        try container.encode(type, forKey: .type)
+        try container.encode(createdAt, forKey: .createdAt)
+    }
+}

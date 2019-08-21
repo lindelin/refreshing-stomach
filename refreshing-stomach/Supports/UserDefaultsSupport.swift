@@ -14,6 +14,8 @@ extension UserDefaults {
         case name = "userName"
         case birthday = "userBirthday"
         case sex = "userSex"
+        case sexCode = "userSexCode"
+        case photoPath = "userPhotoPath"
     }
     
     static func setUser(_ value: Any?, forKey userInfoKey: UserInfo) {

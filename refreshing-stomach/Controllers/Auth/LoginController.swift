@@ -8,8 +8,12 @@
 
 import UIKit
 import Firebase
+import KRProgressHUD
 
 class LoginController: UIViewController {
+    
+    let db = Firestore.firestore()
+    let storage = Storage.storage()
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -56,8 +60,39 @@ class LoginController: UIViewController {
                 return
             }
             
+            KRProgressHUD.show()
+            
+            let ref: DocumentReference = self.db.collection("users").document(authResult.user.uid)
+            
+            ref.getDocument(completion: { (document, error) in
+                if let document = document, document.exists, let data = document.data() {
+                    UserDefaults.setUser(data["name"], forKey: .name)
+                    UserDefaults.setUser(data["birthday"], forKey: .birthday)
+                    UserDefaults.setUser(data["sex"], forKey: .sexCode)
+                    UserDefaults.setUser(data["photoPath"], forKey: .photoPath)
+                    UserDefaults.setUser(User.getSexString(code: data["sex"] as! String), forKey: .sex)
+                    UserDefaults.standard.synchronize()
+                    
+                    let photoRef = self.storage.reference(withPath: data["photoPath"] as! String)
+                    photoRef.getData(maxSize: 2 * 1024 * 1024, completion: { (data, error) in
+                        KRProgressHUD.dismiss()
+                        
+                        if let error = error {
+                            print(error)
+                            return
+                        }
+                        
+                        let photo = UIImage(data: data!)
+                        photo?.saveAsUserPhoto()
+                    })
+                    
+                }
+            })
+            
+            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let mainController = storyboard.instantiateViewController(withIdentifier: "MainView")
+            let mainController = storyboard.instantiateViewController(withIdentifier: "MainView") as! UITabBarController
+            mainController.selectedIndex = 0
             UIView.transition(from: self.view, to: mainController.view, duration: 0.6, options: [.transitionCrossDissolve], completion: {
                 _ in
                 UIApplication.shared.keyWindow?.rootViewController = mainController

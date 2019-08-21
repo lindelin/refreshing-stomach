@@ -13,7 +13,7 @@
         <!--きろく-->
         <scene sceneID="nRT-CK-ILg">
             <objects>
-                <viewController id="uvB-BQ-ByI" sceneMemberID="viewController">
+                <viewController id="uvB-BQ-ByI" customClass="ActionController" customModule="refreshing_stomach" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a4h-P9-oRg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,6 +26,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="160"/>
                                 <state key="normal" title="💩"/>
+                                <connections>
+                                    <action selector="addLogButtonHasTapped:" destination="uvB-BQ-ByI" eventType="touchUpInside" id="Ft4-KP-jvJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

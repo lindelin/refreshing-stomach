@@ -23,8 +23,11 @@ class ProfileController: UITableViewController {
     func updateUI() {
         photoView.image = UIImage.getUserPhoto()
         nameLabel.text = UserDefaults.getUser(forKey: .name)
-        let age = Date.createFormFormat(string: UserDefaults.getUser(forKey: .birthday)!)?.age()
-        infoLabel.text = "\(UserDefaults.getUser(forKey: .sex)!) / \(age!)歳"
+        var age: Int?
+        if let birthday = UserDefaults.getUser(forKey: .birthday) {
+            age = Date.createFormFormat(string: birthday)?.age()
+        }
+        infoLabel.text = "\(UserDefaults.getUser(forKey: .sex) ?? "--") / \(age ?? 0)歳"
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -33,14 +36,15 @@ class ProfileController: UITableViewController {
         }
     }
 
-    /*
     // MARK: - Navigation
+    
+    @IBAction func unwindToProfileView(unwindSegue: UIStoryboardSegue) {
+        updateUI()
+    }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
-
 }

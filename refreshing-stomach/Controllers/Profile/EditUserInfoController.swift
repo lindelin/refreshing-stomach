@@ -1,8 +1,8 @@
 //
-//  RegistUserInfoController.swift
+//  EditUserInfoController.swift
 //  refreshing-stomach
 //
-//  Created by Jie Wu on 2019/08/14.
+//  Created by Jie Wu on 2019/08/20.
 //  Copyright © 2019 Lindelin. All rights reserved.
 //
 
@@ -11,13 +11,13 @@ import Firebase
 import MobileCoreServices
 import KRProgressHUD
 
-class RegistUserInfoController: UIViewController {
-    
+class EditUserInfoController: UIViewController {
+
     let db = Firestore.firestore()
     let storage = Storage.storage()
     var photoPath: String?
     var sexCode: String?
-
+    
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var birthdayField: UITextField!
@@ -25,9 +25,19 @@ class RegistUserInfoController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         setupTextField()
+        updateUI()
+    }
+    
+    func updateUI() {
+        photoView.image = UIImage.getUserPhoto()
+        nameField.text = UserDefaults.getUser(forKey: .name)
+        birthdayField.text = UserDefaults.getUser(forKey: .birthday)
+        sexField.text = UserDefaults.getUser(forKey: .sex)
+        photoPath = UserDefaults.getUser(forKey: .photoPath)
+        sexCode = UserDefaults.getUser(forKey: .sexCode)
     }
     
     func setupTextField() {
@@ -43,13 +53,14 @@ class RegistUserInfoController: UIViewController {
         pickerView.tag = 0
         pickerView.delegate = self
         pickerView.dataSource = self
+        pickerView.selectRow(self.sexCode == "10" ? 0 : 1, inComponent: 0, animated: true)
         sender.inputView = pickerView
     }
     
     @objc func birthdayEditing(sender: UITextField) {
         let datePickerView = UIDatePicker()
         datePickerView.datePickerMode = .date
-        datePickerView.setDate(Date(), animated: true)
+        datePickerView.setDate(Date.createFormFormat(string: self.birthdayField.text!) ?? Date(), animated: true)
         sender.inputView = datePickerView
         datePickerView.addTarget(self, action: #selector(self.birthdayPickerValueChanged), for: .valueChanged)
     }
@@ -135,6 +146,7 @@ class RegistUserInfoController: UIViewController {
         }
         
         if let photoPath = self.photoPath {
+            
             DispatchQueue.main.async {
                 let photoRef = self.storage.reference(withPath: photoPath)
                 photoRef.downloadURL(completion: { (url, error) in
@@ -166,20 +178,15 @@ class RegistUserInfoController: UIViewController {
                 self.showErrorMessage(message: error.localizedDescription)
                 return
             }
-
+            
             UserDefaults.setUser(name, forKey: .name)
             UserDefaults.setUser(birthday, forKey: .birthday)
             UserDefaults.setUser(self.sexField.text!, forKey: .sex)
             UserDefaults.setUser(sexCode, forKey: .sexCode)
             UserDefaults.setUser(self.photoPath, forKey: .photoPath)
             UserDefaults.standard.synchronize()
-
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let mainController = storyboard.instantiateViewController(withIdentifier: "MainView")
-            UIView.transition(from: self.view, to: mainController.view, duration: 0.6, options: [.transitionCrossDissolve], completion: {
-                _ in
-                UIApplication.shared.keyWindow?.rootViewController = mainController
-            })
+            
+            self.performSegue(withIdentifier: "UnwindToProfileSegue", sender: nil)
         }
     }
     
@@ -190,18 +197,18 @@ class RegistUserInfoController: UIViewController {
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
-extension RegistUserInfoController: UITextFieldDelegate {
+extension EditUserInfoController: UITextFieldDelegate {
     // MARK: - Doneボタン押下でキーボードを閉じる
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField.tag {
@@ -221,20 +228,9 @@ extension RegistUserInfoController: UITextFieldDelegate {
     }
 }
 
-extension RegistUserInfoController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension EditUserInfoController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         KRProgressHUD.show(withMessage: "アップロード中です...0%", completion: nil)
-        
-        DispatchQueue.main.async {
-            if let photoPath = self.photoPath {
-                let deleteRef = self.storage.reference(withPath: photoPath)
-                deleteRef.delete(completion: { (error) in
-                    if let error = error {
-                        print(error)
-                    }
-                })
-            }
-        }
         
         let mediaType = info[.mediaType] as! String
         
@@ -274,7 +270,7 @@ extension RegistUserInfoController: UIImagePickerControllerDelegate, UINavigatio
     }
 }
 
-extension RegistUserInfoController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension EditUserInfoController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

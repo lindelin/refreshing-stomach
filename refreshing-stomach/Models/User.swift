@@ -21,4 +21,14 @@ struct User {
     var email: String
     var birthday: String
     var photoPath: String?
+    
+    static func getSexString(code: String) -> String {
+        if code == "10" {
+            return "男性"
+        } else if code == "01" {
+            return "女性"
+        } else {
+            return "--"
+        }
+    }
 }
