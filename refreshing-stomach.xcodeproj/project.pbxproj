@@ -23,6 +23,11 @@
 		F26D800B2303F3FC009F4FC9 /* RegistUserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26D800A2303F3FC009F4FC9 /* RegistUserInfoController.swift */; };
 		F2947D92230BA22A00970AD1 /* EditUserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2947D91230BA22A00970AD1 /* EditUserInfoController.swift */; };
 		F2ADB77A230CE40A0043669E /* UISupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ADB779230CE40A0043669E /* UISupport.swift */; };
+		F2ADB77C230D221B0043669E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ADB77B230D221B0043669E /* Log.swift */; };
+		F2ADB783230D44DE0043669E /* LogTypeSelectorBulletinPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ADB781230D44DD0043669E /* LogTypeSelectorBulletinPage.swift */; };
+		F2ADB784230D44DE0043669E /* FeedbackPageBulletinItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ADB782230D44DD0043669E /* FeedbackPageBulletinItem.swift */; };
+		F2ADB786230D45240043669E /* FeedbackGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ADB785230D45230043669E /* FeedbackGenerators.swift */; };
+		F2ADB789230E934E0043669E /* LogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ADB788230E934E0043669E /* LogCell.swift */; };
 		F2C101622302578E000822E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C101612302578E000822E0 /* AppDelegate.swift */; };
 		F2C101642302578E000822E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C101632302578E000822E0 /* ViewController.swift */; };
 		F2C101672302578E000822E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2C101652302578E000822E0 /* Main.storyboard */; };
@@ -56,6 +61,11 @@
 		F26D800A2303F3FC009F4FC9 /* RegistUserInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistUserInfoController.swift; sourceTree = "<group>"; };
 		F2947D91230BA22A00970AD1 /* EditUserInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoController.swift; sourceTree = "<group>"; };
 		F2ADB779230CE40A0043669E /* UISupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISupport.swift; sourceTree = "<group>"; };
+		F2ADB77B230D221B0043669E /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		F2ADB781230D44DD0043669E /* LogTypeSelectorBulletinPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTypeSelectorBulletinPage.swift; sourceTree = "<group>"; };
+		F2ADB782230D44DD0043669E /* FeedbackPageBulletinItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackPageBulletinItem.swift; sourceTree = "<group>"; };
+		F2ADB785230D45230043669E /* FeedbackGenerators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackGenerators.swift; sourceTree = "<group>"; };
+		F2ADB788230E934E0043669E /* LogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCell.swift; sourceTree = "<group>"; };
 		F2C1015E2302578E000822E0 /* refreshing-stomach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "refreshing-stomach.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2C101612302578E000822E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2C101632302578E000822E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +126,7 @@
 			children = (
 				F266A1EA23065D4500203C7F /* User.swift */,
 				F266A1EC23068FEB00203C7F /* Log.xcdatamodeld */,
+				F2ADB77B230D221B0043669E /* Log.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -127,6 +138,14 @@
 				F2947D91230BA22A00970AD1 /* EditUserInfoController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		F2ADB787230E93340043669E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F2ADB788230E934E0043669E /* LogCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		F2C101552302578E000822E0 = {
@@ -150,6 +169,7 @@
 		F2C101602302578E000822E0 /* refreshing-stomach */ = {
 			isa = PBXGroup;
 			children = (
+				F2ADB787230E93340043669E /* Cells */,
 				F266A1E923065D3500203C7F /* Models */,
 				F2C10181230290EA000822E0 /* Supports */,
 				F2C1017B23026D5C000822E0 /* Controllers */,
@@ -204,6 +224,9 @@
 		F2C10181230290EA000822E0 /* Supports */ = {
 			isa = PBXGroup;
 			children = (
+				F2ADB785230D45230043669E /* FeedbackGenerators.swift */,
+				F2ADB782230D44DD0043669E /* FeedbackPageBulletinItem.swift */,
+				F2ADB781230D44DD0043669E /* LogTypeSelectorBulletinPage.swift */,
 				F2C1018223029112000822E0 /* UIViewControllerSupport.swift */,
 				F266A1E523054A0400203C7F /* UserDefaultsSupport.swift */,
 				F266A1E723054D8300203C7F /* SystemSupport.swift */,
@@ -365,15 +388,20 @@
 				F2C1018023028422000822E0 /* RegisterController.swift in Sources */,
 				F201A7E42306D5C30031E9E5 /* ActionController.swift in Sources */,
 				F201A7E62306E1A30031E9E5 /* LogController.swift in Sources */,
+				F2ADB789230E934E0043669E /* LogCell.swift in Sources */,
 				F26D800B2303F3FC009F4FC9 /* RegistUserInfoController.swift in Sources */,
 				F266A1EE23068FEB00203C7F /* Log.xcdatamodeld in Sources */,
 				F266A1E823054D8300203C7F /* SystemSupport.swift in Sources */,
 				F266A1EB23065D4500203C7F /* User.swift in Sources */,
+				F2ADB783230D44DE0043669E /* LogTypeSelectorBulletinPage.swift in Sources */,
 				F2C1018523029B4E000822E0 /* EmailVerificationController.swift in Sources */,
+				F2ADB786230D45240043669E /* FeedbackGenerators.swift in Sources */,
 				F2C101642302578E000822E0 /* ViewController.swift in Sources */,
 				F26D80092303E9E5009F4FC9 /* ProfileController.swift in Sources */,
 				F2C101892302AF55000822E0 /* LoginController.swift in Sources */,
+				F2ADB77C230D221B0043669E /* Log.swift in Sources */,
 				F2C1017E23026D9C000822E0 /* WelcomeController.swift in Sources */,
+				F2ADB784230D44DE0043669E /* FeedbackPageBulletinItem.swift in Sources */,
 				F2C101622302578E000822E0 /* AppDelegate.swift in Sources */,
 				F2C1018B2302B73B000822E0 /* SendPasswordResetMailController.swift in Sources */,
 				F2947D92230BA22A00970AD1 /* EditUserInfoController.swift in Sources */,

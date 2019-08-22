@@ -10,6 +10,15 @@ import Foundation
 import UIKit
 
 extension Date {
+    static func now() -> String {
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
+        formatter.locale = Locale.current
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        return formatter.string(from: Date())
+    }
+    
     static func createFormFormat(string date: String, format: String = "yyyy/MM/dd") -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = format
@@ -30,6 +39,16 @@ extension Date {
         let age = ageComponents.year!
         
         return age
+    }
+    
+    func toStringWithCurrentLocale() -> String {
+        
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
+        formatter.locale = Locale.current
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        
+        return formatter.string(from: self)
     }
 }
 
@@ -68,5 +87,47 @@ extension Log: Encodable {
         try container.encode(id?.uuidString, forKey: .id)
         try container.encode(type, forKey: .type)
         try container.encode(createdAt, forKey: .createdAt)
+    }
+}
+
+extension Date {
+    // Returns the number of years
+    func yearsCount(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.year], from: date, to: Date()).year ?? 0
+    }
+    // Returns the number of months
+    func monthsCount(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.month], from: date, to: Date()).month ?? 0
+    }
+    // Returns the number of weeks
+    func weeksCount(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.weekOfMonth], from: date, to: Date()).weekOfMonth ?? 0
+    }
+    // Returns the number of days
+    func daysCount(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.day], from: date, to: Date()).day ?? 0
+    }
+    // Returns the number of hours
+    func hoursCount(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.hour], from: date, to: Date()).hour ?? 0
+    }
+    // Returns the number of minutes
+    func minutesCount(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.minute], from: date, to: Date()).minute ?? 0
+    }
+    // Returns the number of seconds
+    func secondsCount(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.second], from: date, to: Date()).second ?? 0
+    }
+    // Returns time ago by checking if the time differences between two dates are in year or months or weeks or days or hours or minutes or seconds
+    func diffForHumans() -> String {
+        if yearsCount(from: self)   > 0 { return "\(yearsCount(from: self)) 年前"   }
+        if monthsCount(from: self)  > 0 { return "\(monthsCount(from: self)) 月前"  }
+        if weeksCount(from: self)   > 0 { return "\(weeksCount(from: self)) 週前"   }
+        if daysCount(from: self)    > 0 { return "\(daysCount(from: self)) 日前"    }
+        if hoursCount(from: self)   > 0 { return "\(hoursCount(from: self)) 時間前"   }
+        if minutesCount(from: self) > 0 { return "\(minutesCount(from: self)) 分前" }
+        if secondsCount(from: self) > 0 { return "\(secondsCount(from: self)) 秒前" }
+        return ""
     }
 }

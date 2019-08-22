@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +30,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rgk-8s-39G">
                                         <rect key="frame" x="8" y="92" width="295" height="40"/>
-                                        <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" name="theme"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="jEZ-rR-v4K"/>
                                         </constraints>
@@ -59,7 +60,7 @@
                                         <rect key="frame" x="116.66666666666666" y="28.333333333333371" width="82" height="36"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <state key="normal" title="ログイン">
-                                            <color key="titleColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" name="theme"/>
                                         </state>
                                         <connections>
                                             <segue destination="9U0-el-BE9" kind="show" id="iR2-Qt-jbu"/>
@@ -117,7 +118,7 @@
                                         <rect key="frame" x="0.0" y="171" width="311" height="49"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <state key="normal" title="次へ">
-                                            <color key="titleColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" name="theme"/>
                                         </state>
                                         <connections>
                                             <action selector="nextButtonHasTapped:" destination="xRg-F9-Nmh" eventType="touchUpInside" id="Mt1-q6-SqG"/>
@@ -147,7 +148,7 @@
                                     <constraint firstAttribute="width" constant="48" id="9bh-UY-Ngo"/>
                                     <constraint firstAttribute="height" constant="48" id="GFW-9e-LAX"/>
                                 </constraints>
-                                <color key="tintColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" name="theme"/>
                                 <state key="normal" title="X" image="multiply-32"/>
                                 <connections>
                                     <segue destination="WCH-m6-elr" kind="unwind" unwindAction="unwindToWelcomeViewWithUnwindSegue:" id="gAq-g5-z78"/>
@@ -218,7 +219,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JF-SM-ofw">
                                                 <rect key="frame" x="0.0" y="25.999999999999986" width="37.333333333333336" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" name="theme"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="に送信しました" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0s-eJ-54f">
@@ -240,7 +241,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifW-D8-syu">
                                 <rect key="frame" x="40" y="714" width="295" height="32"/>
-                                <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="theme"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="eM5-7r-aah"/>
                                 </constraints>
@@ -297,7 +298,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMu-9b-DGu">
                                         <rect key="frame" x="0.0" y="133" width="311" height="50.333333333333343"/>
-                                        <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" name="theme"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <state key="normal" title="ログイン">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -328,7 +329,7 @@
                                     <constraint firstAttribute="height" constant="48" id="RQr-43-3cq"/>
                                     <constraint firstAttribute="width" constant="48" id="dPN-dw-Qgx"/>
                                 </constraints>
-                                <color key="tintColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" name="theme"/>
                                 <state key="normal" title="X" image="multiply-32"/>
                                 <connections>
                                     <segue destination="J6W-7q-fgv" kind="unwind" unwindAction="unwindToWelcomeViewWithUnwindSegue:" id="utC-1l-Waz"/>
@@ -397,7 +398,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xm-Ms-IDM">
                                         <rect key="frame" x="0.0" y="63" width="311" height="47"/>
-                                        <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" name="theme"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <state key="normal" title="パスワードの再設定メールを送信">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -427,7 +428,7 @@
                                     <constraint firstAttribute="width" constant="48" id="2c1-vE-4oR"/>
                                     <constraint firstAttribute="height" constant="48" id="6PU-NT-E7Y"/>
                                 </constraints>
-                                <color key="tintColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" name="theme"/>
                                 <state key="normal" title="X" image="multiply-32"/>
                                 <connections>
                                     <segue destination="URG-1U-yqT" kind="unwind" identifier="BackToLoginViewSegue" unwindAction="unwindToLoginViewWithUnwindSegue:" id="jSg-xw-PgV"/>
@@ -526,7 +527,7 @@
                                         <rect key="frame" x="0.0" y="171" width="311" height="49"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <state key="normal" title="スタート">
-                                            <color key="titleColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" name="theme"/>
                                         </state>
                                         <connections>
                                             <action selector="startButtonHasTapped:" destination="ey7-gf-yMY" eventType="touchUpInside" id="bLk-Kd-Dh6"/>
@@ -572,5 +573,8 @@
     <resources>
         <image name="multiply-32" width="32" height="32"/>
         <image name="plus-64-o" width="32" height="32"/>
+        <namedColor name="theme">
+            <color red="0.58039215686274515" green="0.086274509803921567" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

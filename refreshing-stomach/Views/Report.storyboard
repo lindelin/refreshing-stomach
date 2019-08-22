@@ -32,7 +32,9 @@
                             <outlet property="delegate" destination="SBN-Gw-eDE" id="KDz-CC-gyd"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="レポート" image="red-file-64-o" selectedImage="red-file-64-o" id="Qfe-gU-o4o"/>
+                    <tabBarItem key="tabBarItem" title="レポート" image="red-file-64-o" selectedImage="red-file-64-o" id="Qfe-gU-o4o">
+                        <inset key="imageInsets" minX="0.0" minY="1" maxX="0.0" maxY="-1"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ns-Xg-Tbm" userLabel="First Responder" sceneMemberID="firstResponder"/>

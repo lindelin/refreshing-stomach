@@ -29,32 +29,34 @@ class LogController: UITableViewController {
         
         // Do any additional setup after loading the view.
         let logFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Log")
+        let sortDescripter = NSSortDescriptor(key: "createdAt", ascending: false)//ascendind:true 昇順、false 降順です
+        logFetch.sortDescriptors = [sortDescripter]
         do {
             let fetchedLogs = try context.fetch(logFetch) as! [Log]
             self.logs = fetchedLogs
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
             
-            do {
-                var array: [[String: Any]] = []
-                for log in fetchedLogs {
-                    array.append([
-                        "id": log.id?.uuidString as Any,
-                        "type": log.type as Any,
-                        "created_at": log.createdAt?.description as Any
-                        ])
-                }
-                let ref = self.db.collection("users").document(Auth.auth().currentUser!.uid)
-                ref.setData(["logs": array], merge: true) { err in
-                    if let err = err {
-                        print("Error adding document: \(err)")
-                    } else {
-                        print("Document added with ID: \(ref.documentID)")
-                    }
-                }
-            } catch {
-                print("Error fetching data from CoreData")
-            }
+//            do {
+//                var array: [[String: Any]] = []
+//                for log in fetchedLogs {
+//                    array.append([
+//                        "id": log.id?.uuidString as Any,
+//                        "type": log.type as Any,
+//                        "created_at": log.createdAt?.description as Any
+//                        ])
+//                }
+//                let ref = self.db.collection("users").document(Auth.auth().currentUser!.uid)
+//                ref.setData(["logs": array], merge: true) { err in
+//                    if let err = err {
+//                        print("Error adding document: \(err)")
+//                    } else {
+//                        print("Document added with ID: \(ref.documentID)")
+//                    }
+//                }
+//            } catch {
+//                print("Error fetching data from CoreData")
+//            }
         } catch {
             fatalError("Failed to fetch log: \(error)")
         }
@@ -68,9 +70,9 @@ class LogController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TestLogCell", for: indexPath)
-
-        cell.textLabel?.text = logs[indexPath.row].createdAt?.description
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LogCell", for: indexPath) as! LogCell
+        
+        cell.updateUI(log: logs[indexPath.row])
 
         return cell
     }

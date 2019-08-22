@@ -8,20 +8,30 @@
 
 import UIKit
 import CoreData
+import BLTNBoard
 
 class ActionController: UIViewController {
+    
+    lazy var bulletinManager: BLTNItemManager = {
+        let page = LogTypeSelectorBulletinPage(title: "場所")
+        page.descriptionText = "どこのおトイレ？"
+        page.actionButtonTitle = "登録"
+        
+        let themeColor = UIColor(named: "theme")!
+        page.appearance.actionButtonColor = themeColor
+        page.appearance.alternativeButtonTitleColor = themeColor
+        page.appearance.actionButtonTitleColor = .white
+        
+        return BLTNItemManager(rootItem: page)
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func addLogButtonHasTapped(_ sender: Any) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let log = Log(context: appDelegate.persistentContainer.viewContext)
-        log.id = UUID()
-        log.type = "100"
-        log.createdAt = Date()
-        appDelegate.saveContext()
+        bulletinManager.backgroundViewStyle = .blurredDark
+        bulletinManager.showBulletin(above: self)
     }
     
     /*
