@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
         
+        // Watch サポート
+        WatchSession.main.startSession()
+        
         if let user = Auth.auth().currentUser {
             guard user.isEmailVerified else {
                 let storyboard = UIStoryboard(name:"Auth", bundle: nil)
