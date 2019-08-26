@@ -14,13 +14,20 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="refreshing_stomach_watch" customModuleProvider="target">
                     <items>
-                        <group width="1" height="1" alignment="center" verticalAlignment="center" id="yk7-YR-zyc">
+                        <group width="1" height="1" alignment="center" verticalAlignment="center" layout="vertical" spacing="8" id="ndj-uH-wgI">
                             <items>
                                 <button width="100" height="100" alignment="center" verticalAlignment="center" backgroundImage="poo-200" id="SQ6-AI-AF5">
                                     <connections>
                                         <action selector="logButtonHasTapped" destination="AgC-eL-Hgc" id="c2H-Gr-rFX"/>
                                     </connections>
                                 </button>
+                                <group width="1" alignment="center" verticalAlignment="center" layout="vertical" spacing="10" id="yk7-YR-zyc">
+                                    <items>
+                                        <label width="1" alignment="left" text="記録しましょう〜" textAlignment="center" numberOfLines="2" id="shP-MN-j8n">
+                                            <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                                        </label>
+                                    </items>
+                                </group>
                             </items>
                         </group>
                     </items>
@@ -32,6 +39,10 @@
                             <menuItem title="キャンセル" icon="play" id="AaV-UF-si3"/>
                         </items>
                     </menu>
+                    <connections>
+                        <outlet property="logButton" destination="SQ6-AI-AF5" id="o2N-oi-Ywz"/>
+                        <outlet property="messageLabel" destination="shP-MN-j8n" id="DCh-wE-j53"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="105"/>

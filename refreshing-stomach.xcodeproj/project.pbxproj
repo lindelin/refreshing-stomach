@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0889AECEAA58382730D032D4 /* Pods_refreshing_stomach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F949DA560B676895ED1B813 /* Pods_refreshing_stomach.framework */; };
-		A8F39C362310FCD000C3CDA6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8F39C352310FCD000C3CDA6 /* GoogleService-Info.plist */; };
 		A8FC111323126AD400C3BDF3 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8FC111123126AD400C3BDF3 /* Interface.storyboard */; };
 		A8FC111523126AD600C3BDF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8FC111423126AD600C3BDF3 /* Assets.xcassets */; };
 		A8FC111C23126AD600C3BDF3 /* refreshing-stomach-watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A8FC111B23126AD600C3BDF3 /* refreshing-stomach-watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -17,7 +16,6 @@
 		A8FC112523126AD600C3BDF3 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FC112423126AD600C3BDF3 /* NotificationController.swift */; };
 		A8FC112723126AD700C3BDF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8FC112623126AD700C3BDF3 /* Assets.xcassets */; };
 		A8FC112C23126AD700C3BDF3 /* refreshing-stomach-watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A8FC110F23126AD400C3BDF3 /* refreshing-stomach-watch.app */; };
-		A8FC113623126FC900C3BDF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2C1016B23025791000822E0 /* Assets.xcassets */; };
 		A8FC113823127CB100C3BDF3 /* WatchSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FC113723127CB100C3BDF3 /* WatchSupport.swift */; };
 		F201A7E42306D5C30031E9E5 /* ActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F201A7E32306D5C30031E9E5 /* ActionController.swift */; };
 		F201A7E62306E1A30031E9E5 /* LogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F201A7E52306E1A30031E9E5 /* LogController.swift */; };
@@ -50,6 +48,9 @@
 		F2C1018523029B4E000822E0 /* EmailVerificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1018423029B4E000822E0 /* EmailVerificationController.swift */; };
 		F2C101892302AF55000822E0 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C101882302AF55000822E0 /* LoginController.swift */; };
 		F2C1018B2302B73B000822E0 /* SendPasswordResetMailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1018A2302B73B000822E0 /* SendPasswordResetMailController.swift */; };
+		F2E9DB882313C129008F18DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2E9DB872313C129008F18DF /* GoogleService-Info.plist */; };
+		F2E9DB8B2313C279008F18DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2C1016B23025791000822E0 /* Assets.xcassets */; };
+		F2E9DB8E2313D0DA008F18DF /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E9DB8D2313D0DA008F18DF /* NotificationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +97,6 @@
 
 /* Begin PBXFileReference section */
 		8F949DA560B676895ED1B813 /* Pods_refreshing_stomach.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_refreshing_stomach.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A8F39C352310FCD000C3CDA6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A8FC110F23126AD400C3BDF3 /* refreshing-stomach-watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "refreshing-stomach-watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8FC111223126AD400C3BDF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		A8FC111423126AD600C3BDF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,9 +146,18 @@
 		F2C1018423029B4E000822E0 /* EmailVerificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationController.swift; sourceTree = "<group>"; };
 		F2C101882302AF55000822E0 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		F2C1018A2302B73B000822E0 /* SendPasswordResetMailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPasswordResetMailController.swift; sourceTree = "<group>"; };
+		F2E9DB872313C129008F18DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F2E9DB8D2313D0DA008F18DF /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		99F91D3D9671ADB17C286069 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A8FC111823126AD600C3BDF3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -267,6 +276,7 @@
 		F2C101602302578E000822E0 /* refreshing-stomach */ = {
 			isa = PBXGroup;
 			children = (
+				F2E9DB8C2313D0B2008F18DF /* Services */,
 				F2ADB787230E93340043669E /* Cells */,
 				F266A1E923065D3500203C7F /* Models */,
 				F2C10181230290EA000822E0 /* Supports */,
@@ -277,7 +287,7 @@
 				F2C1016B23025791000822E0 /* Assets.xcassets */,
 				F2C1016D23025791000822E0 /* LaunchScreen.storyboard */,
 				F2C1017023025791000822E0 /* Info.plist */,
-				A8F39C352310FCD000C3CDA6 /* GoogleService-Info.plist */,
+				F2E9DB872313C129008F18DF /* GoogleService-Info.plist */,
 			);
 			path = "refreshing-stomach";
 			sourceTree = "<group>";
@@ -334,6 +344,14 @@
 			path = Supports;
 			sourceTree = "<group>";
 		};
+		F2E9DB8C2313D0B2008F18DF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F2E9DB8D2313D0DA008F18DF /* NotificationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -343,6 +361,7 @@
 			buildPhases = (
 				A8FC110D23126AD400C3BDF3 /* Resources */,
 				A8FC113223126AD700C3BDF3 /* Embed App Extensions */,
+				99F91D3D9671ADB17C286069 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -448,7 +467,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8FC113623126FC900C3BDF3 /* Assets.xcassets in Resources */,
+				F2E9DB8B2313C279008F18DF /* Assets.xcassets in Resources */,
 				A8FC112723126AD700C3BDF3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,7 +478,7 @@
 			files = (
 				F26D800023039E28009F4FC9 /* Profile.storyboard in Resources */,
 				F26D800423039E63009F4FC9 /* Report.storyboard in Resources */,
-				A8F39C362310FCD000C3CDA6 /* GoogleService-Info.plist in Resources */,
+				F2E9DB882313C129008F18DF /* GoogleService-Info.plist in Resources */,
 				F2C1017A23025FF0000822E0 /* Auth.storyboard in Resources */,
 				F2C1016F23025791000822E0 /* LaunchScreen.storyboard in Resources */,
 				F26D800623039EEC009F4FC9 /* Action.storyboard in Resources */,
@@ -485,6 +504,7 @@
 				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BLTNBoard.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -501,6 +521,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BLTNBoard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
@@ -571,6 +592,7 @@
 				F2C101642302578E000822E0 /* ViewController.swift in Sources */,
 				F26D80092303E9E5009F4FC9 /* ProfileController.swift in Sources */,
 				F2C101892302AF55000822E0 /* LoginController.swift in Sources */,
+				F2E9DB8E2313D0DA008F18DF /* NotificationService.swift in Sources */,
 				F2ADB77C230D221B0043669E /* Log.swift in Sources */,
 				F2C1017E23026D9C000822E0 /* WelcomeController.swift in Sources */,
 				F2ADB784230D44DE0043669E /* FeedbackPageBulletinItem.swift in Sources */,

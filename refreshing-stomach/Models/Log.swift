@@ -27,11 +27,11 @@ enum LogType: String {
     static func name(code: String) -> String {
         switch code {
         case "100":
-            return "🏠ご自宅"
+            return "ご自宅"
         case "010":
-            return "🏢勤務先"
+            return "勤務先"
         default:
-            return "❓その他"
+            return "その他"
         }
     }
 }

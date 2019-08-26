@@ -12,6 +12,9 @@ import WatchConnectivity
 
 class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
+    @IBOutlet weak var logButton: WKInterfaceButton!
+    @IBOutlet weak var messageLabel: WKInterfaceLabel!
+    
     private let session: WCSession? = WCSession.isSupported() ? WCSession.default : nil
 
     override func awake(withContext context: Any?) {
@@ -47,22 +50,37 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     @IBAction func logButtonHasTapped() {
         
         let homeAction = WKAlertAction(title: "ご自宅", style: .default) {
-            self.session?.sendMessage([
-                "type": "home"
-                ], replyHandler: { (reply) in
-                    print(reply)
-            }, errorHandler: { (error) in
-                print(error)
-            })
+            self.createLog(type: "home")
         }
         
         let officeAction = WKAlertAction(title: "勤務先", style: .default) {
-            print("sdgsdfsd")
+            self.createLog(type: "office")
         }
         
         let othersAction = WKAlertAction(title: "その他", style: .default) {
-            print("sdgsdfsd")
+            self.createLog(type: "others")
         }
         presentAlert(withTitle: nil, message: "場所を選択してください", preferredStyle: .actionSheet, actions: [homeAction, officeAction, othersAction])
+    }
+    
+    func createLog(type: String) {
+        self.messageLabel.setText("記録中...")
+        self.session?.sendMessage([
+            "type": type
+            ], replyHandler: { (reply) in
+                if reply["status"] as! String == "NG" {
+                    let cancelAction = WKAlertAction(title: "了解", style: .cancel, handler: {})
+                    self.presentAlert(withTitle: nil, message: reply["message"] as? String, preferredStyle: .alert, actions: [cancelAction])
+                    self.messageLabel.setText("記録しましょう〜")
+                    return
+                }
+                
+                self.messageLabel.setText("記録しました！")
+        }, errorHandler: { (error) in
+            print(error)
+            self.messageLabel.setText("記録しましょう〜")
+            let cancelAction = WKAlertAction(title: "了解", style: .cancel, handler: {})
+            self.presentAlert(withTitle: "エラー", message: "記録するには、iPhone と通信しなければなりません。", preferredStyle: .alert, actions: [cancelAction])
+        })
     }
 }

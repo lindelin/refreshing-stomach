@@ -21,6 +21,8 @@ class LogController: UITableViewController {
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadData), name: LocalNotification.logHasCreated, object: nil)
     }
     
     @objc func loadData() {

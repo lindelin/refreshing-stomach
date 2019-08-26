@@ -13,5 +13,6 @@ target 'refreshing-stomach' do
   pod 'Firebase/Storage'
   pod 'BulletinBoard'
   pod "KRProgressHUD"
+  pod 'JTAppleCalendar'
 
 end

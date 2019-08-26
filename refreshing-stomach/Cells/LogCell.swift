@@ -26,7 +26,7 @@ class LogCell: UITableViewCell {
     
     func updateUI(log: Log) {
         titleLabel.text = log.createdAt?.diffForHumans()
-        detailTextLabel?.text = "\(log.createdAt?.toStringWithCurrentLocale() ?? "")・\(LogType.name(code: log.type ?? ""))"
+        detailLabel.text = "\(log.createdAt?.toStringWithCurrentLocale() ?? "")・\(LogType.name(code: log.type ?? ""))"
     }
 
 }

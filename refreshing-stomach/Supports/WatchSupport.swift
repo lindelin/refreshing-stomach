@@ -8,6 +8,7 @@
 
 import UIKit
 import WatchConnectivity
+import Firebase
 
 class WatchSession: NSObject, WCSessionDelegate {
     
@@ -21,7 +22,7 @@ class WatchSession: NSObject, WCSessionDelegate {
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        print("Watch APP があります")
+        print("Watch APP が確認できました。")
     }
     
     func sessionDidBecomeInactive(_ session: WCSession) {
@@ -33,10 +34,41 @@ class WatchSession: NSObject, WCSessionDelegate {
     }
 
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
-        print(message)
-        replyHandler([
-            "message": "うけとりました"
-            ])
+        guard let _ = Auth.auth().currentUser else {
+            replyHandler([
+                "status": "NG",
+                "message": "iPhone でログインしてから、登録しましょう〜"
+                ])
+        
+            return
+        }
+        
+        createLog(type: message["type"] as! String)
+        
+        replyHandler(["status": "OK"])
+    }
+    
+    func createLog(type: String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let log = Log(context: appDelegate.persistentContainer.viewContext)
+        log.id = UUID()
+        log.createdAt = Date()
+        
+        switch type {
+        case "home":
+            log.type = LogType.home.rawValue
+            break
+        case "office":
+            log.type = LogType.office.rawValue
+            break
+        default:
+            log.type = LogType.others.rawValue
+            break
+        }
+        
+        appDelegate.saveContext()
+        
+        NotificationCenter.default.post(name: LocalNotification.logHasCreated, object: nil)
     }
     
 }

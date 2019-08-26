@@ -207,6 +207,8 @@ class LogTypeSelectorBulletinPage: FeedbackPageBLTNItem {
         log.type = type.rawValue
         log.createdAt = Date()
         appDelegate.saveContext()
+        
+        NotificationCenter.default.post(name: LocalNotification.logHasCreated, object: nil)
     }
 
     override func actionButtonTapped(sender: UIButton) {
